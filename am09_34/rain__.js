@@ -2,6 +2,10 @@ var max_rains = 9;
 var rains = [];
 var B_sound;
 var B_background ;
+var vol = 0.1;
+var mode = 0;
+var back = 0;
+var fadeOutStart;
 
 function preload() {
   B_sound = loadSound("B.mp3");
@@ -29,11 +33,9 @@ function Rain(x, y, vx, vy, sz, len, c) {
   }
 }
 
-function keyIsPressed() {
-  var vol = 1;
-  B_background.setVolume(vol);
-  vol-=0.01;
-  back+=20;
+function keyPressed() {
+  mode = 1;
+  fadeOutStart = millis();
 }
 
 function setup() {
@@ -51,11 +53,19 @@ function setup() {
 }
 
 function draw() {
-  var back = 0;
-  background(back,back,back);
+  background(back,back,0);
   var i;
   for (i=0; i<max_rains; i++) {
     rains[i].move();
     rains[i].render();
+  }
+
+  if (mode == 1) {
+    let ellapsedTime = millis() - fadeOutStart;
+    if (ellapsedTime <= 3000) {
+    //  B_background.setVolume(0.1,[1]);
+      B_background.setVolume(0.1 - (0.1 * ellapsedTime/3000));
+    }
+    back+=10;
   }
 }

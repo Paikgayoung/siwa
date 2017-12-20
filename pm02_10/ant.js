@@ -91,7 +91,7 @@ function ant() {
       // strokeWeight(10);
       // stroke(255,255,0);
       //line(x[i], height-height/1.5,x[i]+100, height/1.5);
-      
+
       if (x[i]>width/1.5 | x[i]<width/10) x[i]=random(width/10, width/1.3);
       x[i]+=random(-70, 70);
     }

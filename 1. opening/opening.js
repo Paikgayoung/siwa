@@ -10,5 +10,6 @@ function setup() {
   background(255);
   createCanvas(windowWidth, windowHeight);
   opening_siwa.play();
-  image(image_siwa, windowWidth/2, windowHeight/2, width, height);
+  imageMode(CENTER);
+  image(image_siwa, windowWidth/2, windowHeight/2,  height/8*3.5, height/8);
 }
