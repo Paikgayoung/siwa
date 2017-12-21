@@ -3,6 +3,8 @@ var buttons = [];
 
 var image_siwa_gray;
 
+var lastClickedButton = null;
+
 class Button {
   constructor(x, y, sub, title, callback) {
     this.x = x;
@@ -53,7 +55,14 @@ function setup() {
 
   textFont('KoPub Batang');
   buttons[0] = new Button(width/6, height/1.5, "오전", "아홉시 삼십사분", () => {
-    am9_34.play();
+
+    if (lastClickedButton != 0) {
+      am9_34.play();
+      lastClickedButton = 0;
+    } else {
+      window.location.href = "../am09_34/index.html";
+    }
+
   });
   buttons[1] = new Button((width/6) * 2, height/1.5, "오후", "두시 십분", () => {pm2_10.play()});
   buttons[2] = new Button((width/6) * 3, height/1.5, "오후", "네시 이십칠분", () => {pm4_27.play()});
