@@ -8,6 +8,9 @@ function preload() {
 function setup() {
   createCanvas(windowWidth,windowHeight);
   explain_sound.play();
+  explain_sound.onended( () => {
+    window.location.href = "../4.%20contents/index.html";
+  });
   textFont('KoPub Batang');
   textSize(height/30);
   textAlign(CENTER);

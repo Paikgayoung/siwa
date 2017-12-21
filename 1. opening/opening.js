@@ -10,6 +10,9 @@ function setup() {
   background(255);
   createCanvas(windowWidth, windowHeight);
   opening_siwa.play();
+  opening_siwa.onended( () => {
+    window.location.href = "../2.%20wodeshi/index.html";
+  });
   imageMode(CENTER);
   image(image_siwa, windowWidth/2, windowHeight/2,  height/8*3.5, height/8);
 }

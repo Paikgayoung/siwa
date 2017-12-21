@@ -9,6 +9,9 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   opening_wode.play();
+  opening_wode.onended( () => {
+    window.location.href = "../3.%20explain/index.html";
+  });
 }
 
 function draw() {
